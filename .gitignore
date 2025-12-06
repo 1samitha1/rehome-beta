@@ -1,0 +1,38 @@
+# Node modules
+node_modules/
+
+# Environment variables
+.env
+
+
+# Logs
+npm-debug.log*
+
+# Logs folder
+logs/
+*.log
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Build outputs
+dist/
+build/
+coverage/
+
+# IDE files
+.vscode/
+.idea/
+
+# Cache
+.cache/
+.next/
+.parcel-cache/
+
+# Temporary files
+*.tmp
+*.swp
+
+# Mac system files
+.DS_Store

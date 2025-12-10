@@ -9,4 +9,8 @@ router.post('/reg', (req: Request, res: Response) => {
   res.send('Hello from users reg!');
 });
 
+router.post('/login', (req: Request, res: Response) => {
+  res.send('Hello from users reg!');
+});
+
 export default router;

@@ -1,4 +1,5 @@
 import { Request, Response } from 'express';
+import { addNewUser } from '../services/userService';
 
 export const registerUser = async (req: Request, res: Response) => {
     try {
@@ -10,6 +11,8 @@ export const registerUser = async (req: Request, res: Response) => {
         }
 
         // TODO: Hash password, save to database, etc.
+
+        return await addNewUser(req.body);
 
         res.status(201).json({ message: 'User registered successfully' });
     } catch (error) {

@@ -16,4 +16,4 @@ export const UserModel: Schema = new Schema({
     createdAt: { type: Number, default: () => new Date().getTime() },
 });
 
-export default mongoose.model<IUser>('UserModel', UserModel);
+export default mongoose.model<IUser>('Users', UserModel);

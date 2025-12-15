@@ -57,20 +57,15 @@ app.use((err: any, req: Request, res: Response, next: NextFunction) => {
   });
 });
 
-// Start server
-// app.listen(port, () => {
-//   console.log(`Express app listening on port ${port}`);
-// });
-
 const startServer = async () => {
   if (!mongodbUrl) {
     throw new Error('MongoDB connection string is not defined in environment variables');
   }
-  
+
   await connectDatabase(mongodbUrl); 
 
   app.listen(port, () => {
-    console.log(`Server running on port ${port}`);
+    console.log(`Rehome Server is running on port ${port}`);
   });
 };
 

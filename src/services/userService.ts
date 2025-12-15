@@ -1,5 +1,6 @@
 import { createUser, findByEmail } from '../repository/userRepository';
 import { IUser } from '../models/userModel';
+import { encryptPassword } from '../utils/passwordManager';
 
 export async function addNewUser(userData: IUser): Promise<IUser> {
     // Check if user already exists
@@ -8,9 +9,9 @@ export async function addNewUser(userData: IUser): Promise<IUser> {
         throw new Error('User already exists');
     }
     
-    let password = userData.password;
-    // hashed password logic can be added here
-    
+    let hashedPassword = await encryptPassword(userData.password);
+
+    userData.password = hashedPassword;
     userData.createdAt = new Date().getTime();
 
     // Create new user

@@ -12,7 +12,7 @@ export const registerUser = async (req: Request, res: Response) => {
 
         // TODO: Hash password, save to database, etc.
 
-        return await addNewUser(req.body);
+        await addNewUser(req.body);
 
         res.status(201).json({ message: 'User registered successfully' });
     } catch (error) {

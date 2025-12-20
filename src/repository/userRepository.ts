@@ -22,6 +22,6 @@ export async function createUser(userData: IUser): Promise<Document> {
     return await user.save();
 }
 
-export async function userLogin(loginData: IUser): Promise<Document> {
+// export async function userLogin(loginData: IUser): Promise<Document> {
     
-}
+// }

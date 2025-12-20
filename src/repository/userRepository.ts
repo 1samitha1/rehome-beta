@@ -13,7 +13,15 @@ export async function findByEmail(email: string): Promise<Document | null> {
     return await userModel.findOne({ email }).exec();
 }
 
+export async function findByUserName(userName: string): Promise<Document | null> {
+    return await userModel.findOne({ userName }).exec();
+}
+
 export async function createUser(userData: IUser): Promise<Document> {
     const user = new userModel(userData);
     return await user.save();
+}
+
+export async function userLogin(loginData: IUser): Promise<Document> {
+    
 }

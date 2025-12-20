@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { addNewUser } from '../services/userService';
+import { addNewUser, login } from '../services/userService';
 
 export const registerUser = async (req: Request, res: Response) => {
     try {
@@ -10,12 +10,24 @@ export const registerUser = async (req: Request, res: Response) => {
             return res.status(400).json({ message: 'Missing required fields' });
         }
 
-        // TODO: Hash password, save to database, etc.
-
         await addNewUser(req.body);
 
         res.status(201).json({ message: 'User registered successfully' });
     } catch (error) {
         res.status(500).json({ message: 'Registration failed', error });
+    }
+};
+
+export const userLogin = async (req: Request, res: Response) => {
+    try {
+        const { username, password } = req.body;
+
+        // Validate input
+        if (!username || !password) {
+            return res.status(400).json({ message: 'Missing required fields' });
+        }
+       
+    } catch (error) {
+        res.status(500).json({ message: 'Login failed', error });
     }
 };

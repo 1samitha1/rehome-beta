@@ -1,5 +1,5 @@
-import { createUser, findByEmail, findByUserName } from '../repository/userRepository';
-import { IUser } from '../models/userModel';
+import { createUser, findByEmail, findByUserName, userLogin } from '../repository/user.repository';
+import { IUser } from '../models/user.model';
 import { encryptPassword, comparePassword } from '../utils/passwordManager';
 
 export async function addNewUser(userData: IUser): Promise<IUser> {
@@ -19,7 +19,7 @@ export async function addNewUser(userData: IUser): Promise<IUser> {
     return createdUserDoc.toObject() as IUser;
 }
 
-export async function userLogin(loginData: IUser): Promise<IUser> {
+export async function login(loginData: IUser): Promise<IUser> {
     // Check if user exists
     const existingUser = await findByUserName(loginData.userName);
     if (!existingUser || existingUser === null) {
@@ -33,10 +33,11 @@ export async function userLogin(loginData: IUser): Promise<IUser> {
     );
     
     if (!isValidPassword) {
+        throw new Error('Invalid password');
         
     }
 
     // user login
     const loggedUser = await userLogin(loginData);
-    return loggedUser;
+    return loggedUser.toObject() as IUser;
 }

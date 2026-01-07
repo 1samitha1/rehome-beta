@@ -1,4 +1,4 @@
-import userModel from '../models/userModel';
+import userModel from '../models/user.model';
 import { Document } from 'mongoose';
 
 export interface IUser {
@@ -23,5 +23,5 @@ export async function createUser(userData: IUser): Promise<Document> {
 }
 
 // export async function userLogin(loginData: IUser): Promise<Document> {
-    
+//     return await userModel.findOne({ userName: loginData.userName }).exec();
 // }

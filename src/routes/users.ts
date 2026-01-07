@@ -1,5 +1,5 @@
 import { Router, Request, Response } from 'express';
-import { registerUser } from '../controllers/userController';
+import { registerUser } from '../controllers/user.controller';
 const router = Router();
 
 router.get('/', (req: Request, res: Response) => {
@@ -10,8 +10,6 @@ router.post('/reg', async (req: Request, res: Response) => {
   await registerUser(req, res);
 });
 
-router.post('/login', (req: Request, res: Response) => {
-  res.send('Hello from users reg!');
-});
+
 
 export default router;

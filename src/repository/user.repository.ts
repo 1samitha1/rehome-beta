@@ -22,6 +22,6 @@ export async function createUser(userData: IUser): Promise<Document> {
     return await user.save();
 }
 
-export async function userLogin(loginData: IUser): Promise<Document> {
-    return await userModel.findOne({ userName: loginData.userName }).exec();
-}
+// export async function userLogin(loginData: IUser): Promise<Document> {
+//     return await userModel.findOne({ userName: loginData.userName }).exec();
+// }

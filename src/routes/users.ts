@@ -6,10 +6,6 @@ router.get('/', (req: Request, res: Response) => {
   res.send('Hello from users!');
 });
 
-router.post('/reg', async (req: Request, res: Response) => {
-  await registerUser(req, res);
-});
-
-
+router.post('/reg', registerUser);
 
 export default router;

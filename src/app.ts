@@ -8,6 +8,7 @@ import cors from 'cors';
 
 import indexRouter from './routes/index';
 import usersRouter from './routes/users';
+import authRouter from './routes/auth';
 
 import { connectDatabase } from './database/db';
 
@@ -42,6 +43,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Routes
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/auth', authRouter);
 
 // Catch 404 and forward to error handler
 app.use((req: Request, res: Response, next: NextFunction) => {

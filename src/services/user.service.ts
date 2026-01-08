@@ -6,7 +6,7 @@ export async function addNewUser(userData: IUser): Promise<IUser> {
     // Check if user already exists
     const existingUser = await findByEmail(userData.email);
     if (existingUser) {
-        throw new Error('User already exists');
+        throw new Error('USER_ALREADY_EXISTS');
     }
     
     let hashedPassword = await encryptPassword(userData.password);
